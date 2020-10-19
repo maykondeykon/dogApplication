@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta7
+kind: Config
+metadata:
+  name: dog
+build:
+  artifacts:
+  - image: gcr.io/psyched-hook-292609/dog
+    context: .
+    jib: {}
+deploy:
+  kubectl:
+    manifests:
+    - src/main/resources/deployment.yaml
+    - src/main/resources/service.yaml
